@@ -11,6 +11,7 @@ import Login from './Component/Login';
 import Register from './Component/Register';
 import AuthProvider from './Component/AuthProvider';
 import Order from './Component/Order';
+import ProtectedRoute from './Component/ProtectedRoute';
 
 
 
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/order',
-        element:<Order></Order>
+        element:<ProtectedRoute><Order></Order></ProtectedRoute>
       }
     ]
   },
