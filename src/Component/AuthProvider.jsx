@@ -9,15 +9,18 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
 
     const [user,setUser] = useState(null)
+    const [loading,setLoading] = useState(true)
 
     const createUser = (email,password)=>{
-
+        setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
+        
     }
     // console.log(children)
 
 
     const signInUser = (email,password) =>{
+        setLoading(true)
        return signInWithEmailAndPassword(auth,email,password)
     }
 
@@ -30,11 +33,12 @@ const AuthProvider = ({children}) => {
             console.log(error.message)
         })
     }
-    const authInfo = {user,createUser,signInUser,logOut}
+    const authInfo = {user,createUser,signInUser,logOut,loading}
 
     useEffect(()=>{
      const unSubscribe =    onAuthStateChanged(auth,(user)=>{
             setUser(user)
+            setLoading(false)
         });
         return ()=>{
             unSubscribe()
