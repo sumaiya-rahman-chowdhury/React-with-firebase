@@ -8,11 +8,13 @@ const Home = () => {
             <h1>This is home</h1>
            <Link to='/login'style={{margin:'10px'}}> Login</Link>
            <Link to='/reg'>Register</Link>
+           <Link to='/order'>Orders</Link>
            <div>
             {
                 user? <h1>{user.email}</h1> : ''
             }
            </div>
+
            <button onClick={logOut}>Sign Out</button>
         </div>
     );

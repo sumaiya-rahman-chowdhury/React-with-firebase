@@ -10,6 +10,7 @@ import Root from './Component/Root.jsx';
 import Login from './Component/Login';
 import Register from './Component/Register';
 import AuthProvider from './Component/AuthProvider';
+import Order from './Component/Order';
 
 
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/reg',
         element: <Register></Register>
+      },
+      {
+        path:'/order',
+        element:<Order></Order>
       }
     ]
   },
